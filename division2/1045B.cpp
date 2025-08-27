@@ -20,29 +20,14 @@ signed main() {
         int n, k;
         cin >> n >> k;
         vi a(n);
-        cin >> a[0];
-        int gc = a[0];
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             cin >> a[i];
-            gc = __gcd(gc, a[i]);
+            a[i] += a[i]%(k+1)*k;
         }
-        if (gc > 1) {
-            for (int i = 0; i < n; i++) {
-                cout << a[i] << " ";
-            }
+        for (int i = 0; i < n; i++) {
+            cout << a[i] << " ";
         }
-        else {
-            int mini = *min_element(all(a));
-            int flag = 0;
-            int count = 0;
-            for (int i = 0; i < n; i++) {
-                if (a[i] % mini != 0) {
-                    a[i] += k;
-                    count++;
-                }
-            }
-        }
-
+        cout << "\n";
     }
 
     return 0;

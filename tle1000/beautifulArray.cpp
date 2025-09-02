@@ -19,8 +19,32 @@ signed main() {
     while (t--) {
         int n, k, b, s;
         cin >> n >> k >> b >> s;
-        
-
+        if ((b > (k-1) * n) || ((s-b) % k != 0)) cout << "-1" << endl;
+        else {
+            int c = (s - b) / k;
+            if (b >= k-1) {
+                cout << c * b + (k-1) << " ";
+                b -= k-1;
+                n--;
+            }
+            else {
+                cout << c * b + b << " ";
+                b -= b;
+                n--;
+            }
+            while (b >= k-1) {
+                cout << k-1 << " ";
+                b -= k-1;
+                n--;
+            }
+            cout << b << " ";
+            n--;
+            while (n > 0) {
+                cout << "0 ";
+                n--;
+            }
+            cout << endl;
+        }
     }
 
     return 0;

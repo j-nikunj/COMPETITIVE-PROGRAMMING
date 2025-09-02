@@ -21,10 +21,17 @@ signed main() {
         cin >> n >> k;
         vector<pii> a(n);
         for (int i = 0; i < n; i++) {
-            cin >> a[i].F;
-            a[i].S = i;
+            int x;
+            cin >> x;
+            if(x % k == 0) x = k;
+            else x %= k;
+            a[i] = {-x, i + 1};
         }
         sort(all(a));
+        for (int i = 0; i < n; i++) {
+            cout << a[i].S << " ";
+        }
+        cout << "\n";
     }
 
     return 0;

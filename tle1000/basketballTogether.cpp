@@ -13,34 +13,26 @@ typedef pair<int, int> pii;
 
 signed main() {
     fast_io
+    int n, d;
+    cin >> n >> d;
+    vi p(n);
+    for (int i = 0; i < n; i++) {
+        cin >> p[i];
+    }
+    sort(all(p));
 
-        int n, d;
-        cin >> n >> d;
-        vi p(n);
-        for (int i = 0; i < n; i++) {
-            cin >> p[i];
+    int l = 0, r = n-1;
+    int count = 0;
+    int sum = 0;
+    while (l <= r) {
+        sum += p[r];
+        l++;
+        if (sum > d) {
+            count++;
+            r--;
+            sum = 0;
         }
-        sort(all(p));
-        int l = 0, r = n-1;
-        int count = 0, sum = 0;
-        while (l <= r) {
-            sum += p[r];
-            if (sum > d) {
-                count++;
-                r--;
-                sum = 0;
-            }
-            else {
-                sum += p[r];
-                l++;
-                // if (sum > d) {
-                //     count++;
-                //     r--;
-                //     sum = 0;
-                // }
-            }
-        }
-        cout << count << "\n";
-
+    }
+    cout << count << "\n";
     return 0;
 }

@@ -1,21 +1,27 @@
-    for (int i = 1; i < n; i++) {
-        cin >> a[i];
-        int sz = a[i].size();
-        ans = min(ans, sz); 
-        for (int j = 0; j < ans; j++) {
-            if (a[i][j] != a[i-1][j]) {
-                ans = j;
-                break;
-            }
-        }
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr);
+#define F first
+#define S second
+
+typedef vector<int> vi;
+typedef pair<int, int> pii;
+
+void solve() {
+    
+}
+
+signed main() {
+    fast_io
+
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
     }
-    for (int i = 1; i < n; i++) {
-        cin >> a[i];
-        int sz = a[i].size();
-        for (int j = 0; j < min(sz, ans); j++) {
-            if (a[i][j] != a[i-1][j]) {
-                ans = j;
-                break;
-            }
-        }
-    }
+    return 0;
+}

@@ -12,20 +12,11 @@ typedef vector<int> vi;
 typedef pair<int, int> pii;
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
-    vector<vi> a(n);
-    vector<vi> pf(n);
-    for (int i = 0; i < n; i++) {
-        vi temp(m);
-        vi tem(m);
-        for (int j = 0; j < m; j++) {
-            cin >> temp[j];
-            if (j == 0) pf
-        }
-        a.push_back(temp);
-    }
-
+    int x, n;
+    cin >> x >> n;
+    if (n%2) cout << x;
+    else cout << "0";
+    cout << "\n";
 }
 
 signed main() {

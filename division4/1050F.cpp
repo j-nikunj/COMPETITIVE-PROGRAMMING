@@ -14,7 +14,7 @@ typedef pair<int, int> pii;
 void solve() {
     int n;
     cin >> n;
-    vector<vi> a, b;
+    vector<vi> a;
     vi k(n);
     int maxk = 0;
     for (int i = 0; i < n; i++) {
@@ -25,35 +25,33 @@ void solve() {
             cin >> temp[j];
         }
         a.push_back(temp);
-        b.push_back(temp);
     }
-    sort(all(a));
-    vi ans;
-    vi eachMin(maxk);
-    for (int i = 0; i < maxk; i++) {
-        int minEle = INT_MAX;
-        int ind = -1;
-        for (int j = 0; j < n; j++) {
-            if (i < k[j]) {
-                if (a[j][i] < minEle) {
-                    minEle = a[j][i];
-                    ind = j;
-                }
-            }
-        }
-        eachMin[i] = ind;
-    }
-    int temp = ans.size();
-    while(temp < maxk) {
-        for (int i = temp; i < a[eachMin[temp]].size(); i++) {
-            ans.push_back(a[eachMin[temp]][i]);
-        }
-        temp = ans.size();
-    }
-    for (int i = 0; i < temp; i++) {
-        cout << ans[i] << " ";
-    }
-    cout << "\n";
+    // vi ans;
+    // vi eachMin(maxk);
+    // for (int i = 0; i < maxk; i++) {
+    //     int minEle = INT_MAX;
+    //     int ind = -1;
+    //     for (int j = 0; j < n; j++) {
+    //         if (i < k[j]) {
+    //             if (a[j][i] < minEle) {
+    //                 minEle = a[j][i];
+    //                 ind = j;
+    //             }
+    //         }
+    //     }
+    //     eachMin[i] = ind;
+    // }
+    // int temp = ans.size();
+    // while(temp < maxk) {
+    //     for (int i = temp; i < a[eachMin[temp]].size(); i++) {
+    //         ans.push_back(a[eachMin[temp]][i]);
+    //     }
+    //     temp = ans.size();
+    // }
+    // for (int i = 0; i < temp; i++) {
+    //     cout << ans[i] << " ";
+    // }
+    // cout << "\n";
 
 
     list<vi> pools;

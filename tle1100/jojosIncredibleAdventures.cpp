@@ -12,13 +12,23 @@ typedef vector<int> vi;
 typedef pair<int, int> pii;
 
 void solve() {
-    int n;
-    cin >> n;
-    vi a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    string s;
+    cin >> s;
+    s = s + s;
+    int k = 0, z = 0;
+    for (char c : s) {
+        z = c == '1' ? z+1 : 0;
+        k = max(k, z);
     }
-    
+    int n = s.size() / 2;
+    if (k > n) {
+        cout << n*n << '\n';
+    } else 
+    {
+        int side_a = (k+1)/2;
+        int side_b = (k+2)/2;
+        cout << side_a * side_b << '\n';
+    }
 }
 
 signed main() {

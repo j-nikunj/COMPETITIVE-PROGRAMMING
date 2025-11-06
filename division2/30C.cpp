@@ -15,7 +15,7 @@ void solve() {
     int n, m;
     cin >> n >> m;
     vi a(n);
-    vector<pii> b(n);
+    vector<pii> b(m);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
@@ -31,31 +31,27 @@ void solve() {
     vector<pii> zeroB;
     vector<pii> nonzeroB;
     for (int i = 0; i < m; i++) {
-        if (b[i].S == 0) {
-            zeroB.push_back({b[i].F, b[i].S});
-        }
-        else {
-            nonzeroB.push_back({b[i].F, b[i].S});
-        }
+        if (b[i].S == 0) zeroB.push_back(b[i]);
+        else nonzeroB.push_back(b[i]);
     }
 
     int count = 0;
-    int maxi = a[n-1];
-    for (int i = 0; i < nonzeroB.size(); i++) {
-        if (nonzeroB[i].F <= maxi) {
+    int start = 0;
+    for (int i = 0; i < n; i++) {
+        int maxi = a[i];
+        int j = start;
+        while (j < (int)nonzeroB.size() && nonzeroB[j].F <= maxi) {
             count++;
-            maxi = max(maxi, nonzeroB[i].S);
+            maxi = max(maxi, nonzeroB[j].S);
+            j++;
         }
-        else break;
+        start = j;
+        a[i] = maxi;
     }
 
-    cout << count << endl;
-    for (int i = 0; i < zeroB.size(); i++) {
-        cout << zeroB[i].F << " " << zeroB[i].S << endl;
-    }
-    return;
+    sort(all(a));
     int i = n - 1;
-    int j = zeroB.size() - 1;
+    int j = (int)zeroB.size() - 1;
     while (i >= 0 && j >= 0) {
         if (zeroB[j].F <= a[i]) {
             count++;
@@ -67,7 +63,7 @@ void solve() {
         }
     }
 
-    cout << count << endl;
+    cout << count << "\n";
     return;
 }
 

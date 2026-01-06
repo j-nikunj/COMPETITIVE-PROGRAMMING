@@ -14,14 +14,22 @@ typedef pair<int, int> pii;
 void solve() {
     int n;
     cin >> n;
-    int x, y;
-    if (n % 2 == 0) {
-        cout << "-1\n";
-        return;
+    vi a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];   
     }
-    if (n % 4 == 0) y = n / 4;
-    if (n % 6 == 0) x = n / 6;
-    
+    int ans = 0;
+    for (int i = n - 2; i >= 0; i--) {
+        while (a[i] >= a[i + 1]) {
+            if (a[i] == 0) {
+                cout << "-1\n";
+                return;
+            }
+            a[i] /= 2;
+            ans++;
+        }
+    }
+    cout << ans << "\n";
 }
 
 signed main() {

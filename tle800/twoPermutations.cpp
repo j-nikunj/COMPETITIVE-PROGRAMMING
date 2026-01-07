@@ -12,25 +12,11 @@ typedef vector<int> vi;
 typedef pair<int, int> pii;
 
 void solve() {
-    int n;
-    cin >> n;
-    vi a(n);
-    int one = 0;
-    int minus = 0;
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        if (a[i] > 0) one++;
-        else minus++;
-    }
-    int ans = 0;
-    if (minus > one) {
-        ans = minus - one + 1;
-        ans = ans / 2;
-        minus -= ans;
-        one += ans;
-    }
-    if (minus % 2 == 1) ans++;
-    cout << ans << "\n";
+    int n, a, b;
+    cin >> n >> a >> b;
+    if (a == n && b == n) cout << "YES\n";
+    else if (a + b + 1 < n) cout << "YES\n";
+    else cout << "NO\n";
 }
 
 signed main() {

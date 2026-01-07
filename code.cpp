@@ -2,8 +2,22 @@
 using namespace std;
 
 int main() {
-    map<char, int> val = {{'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}};
-    string s = "FNAOEXNLID";
-    cout << val[s[5]] << endl;
-    return 0;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        vector<int> b(n);
+        for(int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+        for (int i = 0; i < n; i++) {
+            cin >> b[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            
+        }
+    }
 }
